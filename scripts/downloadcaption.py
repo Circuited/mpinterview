@@ -1,15 +1,11 @@
-#download the package by:  pip install pytube
-from pytube import YouTube
+from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api.formatters import JSONFormatter
 
-source = YouTube('https://www.youtube.com/watch?v=wjTn_EkgQRg&index=1&list=PLgJ7b1NurjD2oN5ZXbKbPjuI04d_S0V1K')
+transcript = YouTubeTranscriptApi.get_transcript("qBdieWfouZM")
 
+formatter = JSONFormatter()
 
-en_caption = source.captions.get_by_language_code('en')
+text_formatted = formatter.format_transcript(transcript)
 
-en_caption_convert_to_srt =(en_caption.generate_srt_captions())
-
-print(en_caption_convert_to_srt)
-#save the caption to a file named Output.txt
-text_file = open("Output.txt", "w")
-text_file.write(en_caption_convert_to_srt)
-text_file.close()
+with open('20220714', 'w', encoding='utf-8') as JSON_file:
+    JSON_file.write(text_formatted)
