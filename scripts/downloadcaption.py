@@ -7,5 +7,5 @@ formatter = JSONFormatter()
 
 text_formatted = formatter.format_transcript(transcript)
 
-with open('20220714', 'w', encoding='utf-8') as JSON_file:
+with open('20220714.json', 'w', encoding='utf-8') as JSON_file:
     JSON_file.write(text_formatted)
