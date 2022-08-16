@@ -16,7 +16,7 @@ with open(user_input) as file:
 ##with open('20220714.json', 'w', encoding='utf-8') as JSON_file:
 ##    JSON_file.write(text_formatted)
 
-for indexNumber in range(36,55):
+for indexNumber in range(12, 30):
     transcript = YouTubeTranscriptApi.get_transcript(data[str(indexNumber)]['URL'][-11:])
     formatter = JSONFormatter()
     text_formatted = formatter.format_transcript(transcript)
